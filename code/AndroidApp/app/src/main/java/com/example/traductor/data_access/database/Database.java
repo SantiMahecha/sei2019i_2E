@@ -12,7 +12,7 @@ public class Database {
     private static final String HOST = "jdbc:mysql://192.168.0.3:3306/";
     private static final String DB_NAME = "traductordb";
     private static final String CONNECTION = HOST + DB_NAME;
-    private static final String USER = "root";
+    private static final String USER = "app";
     private static final String PASS = "0000";
 
     private ConnectionSource connection;
