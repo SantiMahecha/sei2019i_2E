@@ -7,14 +7,14 @@ import com.j256.ormlite.table.DatabaseTable;
 public class Rol {
 
     @DatabaseField(generatedId = true)
-    private int id;
+    private long id;
 
     @DatabaseField(canBeNull = false)
     private String name;
 
     public Rol(){}
 
-    public int getId() {
+    public long getId() {
         return id;
     }
 

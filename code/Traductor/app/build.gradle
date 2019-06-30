@@ -2,10 +2,17 @@ apply plugin: 'com.android.application'
 
 android {
     compileSdkVersion 28
-    compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
+    //compileOptions {
+    //    sourceCompatibility JavaVersion.VERSION_1_8
+    //    targetCompatibility JavaVersion.VERSION_1_8
+    //}
+
+    packagingOptions {
+        pickFirst 'com/j256/ormlite/core/README.txt'
+        pickFirst 'com/j256/ormlite/jdbc/LICENSE.txt'
+        pickFirst 'com/j256/ormlite/jdbc/README.txt'
     }
+
     defaultConfig {
         applicationId "com.example.traductor"
         minSdkVersion 15

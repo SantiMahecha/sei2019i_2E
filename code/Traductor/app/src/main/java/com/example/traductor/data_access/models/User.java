@@ -12,7 +12,7 @@ public class User {
     @DatabaseField(canBeNull = false)
     private String password;
 
-    @DatabaseField(canBeNull = false, foreign = true)
+    @DatabaseField(canBeNull = true, foreign = true)
     private Rol rol;
 
     public User(){}

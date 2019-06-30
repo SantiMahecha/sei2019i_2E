@@ -1,5 +1,6 @@
 package com.example.traductor.data_access.database;
 
+import com.example.traductor.data_access.models.Rol;
 import com.example.traductor.data_access.models.User;
 import com.j256.ormlite.jdbc.JdbcConnectionSource;
 import com.j256.ormlite.support.ConnectionSource;
@@ -21,6 +22,7 @@ public class Database {
         try {
             connection = new JdbcConnectionSource(CONNECTION, USER, PASS);
             TableUtils.createTableIfNotExists(connection, User.class);
+            TableUtils.createTableIfNotExists(connection, Rol.class);
         } catch (SQLException e) {
             e.printStackTrace();
         }
