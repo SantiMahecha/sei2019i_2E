@@ -47,6 +47,6 @@ public class TranslatorActivity extends AppCompatActivity {
     }
 
     private void showTranslatedText(){
-
+        translatedTextView.setText("traducido :0");
     }
 }
