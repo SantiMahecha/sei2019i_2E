@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Traductor</string>
+    <string name="hint">Inserta el texto a traducir!</string>
 </resources>

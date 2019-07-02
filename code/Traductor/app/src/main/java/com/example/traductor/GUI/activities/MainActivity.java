@@ -4,12 +4,16 @@ import android.os.StrictMode;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.EditText;
 
 import com.example.traductor.R;
 import com.example.traductor.business_logic.Globals;
 import com.example.traductor.business_logic.controllers.LogInController;
 
 public class MainActivity extends AppCompatActivity {
+
+    private EditText mUserEditText;
+    private EditText mPassEditText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,5 +34,10 @@ public class MainActivity extends AppCompatActivity {
 
 
 
+    }
+
+    // TODO poner decente esta vaina XD
+    public static void buttonFunction(){
+        new TranslatorActivity();
     }
 }
