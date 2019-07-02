@@ -4,6 +4,7 @@ import android.os.StrictMode;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.EditText;
 
 import com.example.traductor.R;
 import com.example.traductor.data_access.database.Database;
@@ -13,6 +14,9 @@ import com.example.traductor.data_access.repositories.RolRepository;
 import com.example.traductor.data_access.repositories.UserRepository;
 
 public class MainActivity extends AppCompatActivity {
+
+    private EditText mUserEditText;
+    private EditText mPassEditText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,5 +47,10 @@ public class MainActivity extends AppCompatActivity {
         userRepo.create(tmpUser);
         Log.i("AAAAAAAAAAAAAA", userRepo.getByNickname("TestNickname3").getPassword());
 
+    }
+
+    // TODO poner decente esta vaina XD
+    public static void buttonFunction(){
+        new TranslatorActivity();
     }
 }
