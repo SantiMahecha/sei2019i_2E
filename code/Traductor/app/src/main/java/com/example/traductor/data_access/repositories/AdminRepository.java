@@ -10,11 +10,11 @@ import com.j256.ormlite.dao.DaoManager;
 import java.sql.SQLException;
 
 public class AdminRepository {
-    private Dao<Admin, String> AdminDao;
+    private Dao<Admin, String> adminDao;
 
     public AdminRepository(Database database){
         try{
-            AdminDao = DaoManager.createDao(database.getConnection(), Admin.class);
+            adminDao = DaoManager.createDao(database.getConnection(), Admin.class);
         }catch(SQLException ex){
             ex.printStackTrace();
         }
@@ -23,9 +23,9 @@ public class AdminRepository {
     public void create(Admin Admin){
 
         try{
-            Log.i("Total", AdminDao.countOf() + "");
-            AdminDao.create(Admin);
-            Log.i("Total Final", AdminDao.countOf() + "");
+            Log.i("Total", adminDao.countOf() + "");
+            adminDao.create(Admin);
+            Log.i("Total Final", adminDao.countOf() + "");
         }catch(SQLException ex){
             ex.printStackTrace();
         }
@@ -33,7 +33,7 @@ public class AdminRepository {
 
     public void update(Admin Admin){
         try{
-            AdminDao.update(Admin);
+            adminDao.update(Admin);
         }catch(SQLException ex){
             ex.printStackTrace();
         }
@@ -41,7 +41,7 @@ public class AdminRepository {
 
     public Admin getByNickname(String nickname){
         try{
-            return AdminDao.queryForId(nickname);
+            return adminDao.queryForId(nickname);
         }catch(SQLException ex){
             ex.printStackTrace();
         }
@@ -51,7 +51,7 @@ public class AdminRepository {
 
     public void delete(Admin Admin){
         try{
-            AdminDao.delete(Admin);
+            adminDao.delete(Admin);
         }catch(SQLException ex){
             ex.printStackTrace();
         }

@@ -6,11 +6,8 @@ import android.os.Bundle;
 import android.util.Log;
 
 import com.example.traductor.R;
-import com.example.traductor.data_access.database.Database;
-import com.example.traductor.data_access.models.Rol;
-import com.example.traductor.data_access.models.User;
-import com.example.traductor.data_access.repositories.RolRepository;
-import com.example.traductor.data_access.repositories.UserRepository;
+import com.example.traductor.business_logic.Globals;
+import com.example.traductor.business_logic.controllers.LogInController;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -23,25 +20,15 @@ public class MainActivity extends AppCompatActivity {
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
         StrictMode.setThreadPolicy(policy);
 
-        Database database = new Database();
+        LogInController logInController = new LogInController(Globals.userRepo);
+        LogInController.LogInResult logInResult = logInController.logIn("TestNickname3", "0000");
 
-        UserRepository userRepo = new UserRepository(database);
-        RolRepository rolRepo = new RolRepository(database);
+        Log.i("AAAAAAAAAAAAAAAAA", logInResult.result.toString());
+
+        if(logInResult.result.equals(LogInController.LogInResultEnum.CORRECT)) Globals.loggedUser = logInResult.user;
 
 
-        Rol rol = rolRepo.getById(1); // new Rol();
-        //rol.setName("Rol#1");
 
-        //rolRepo.create(rol);
-        //Log.i("AAAAAAAAAAAAAA", rol.getId() + "");
-
-        User tmpUser = new User();
-        tmpUser.setNickname("TestNickname3");
-        tmpUser.setPassword("0000");
-        tmpUser.setRol(rol);
-
-        userRepo.create(tmpUser);
-        Log.i("AAAAAAAAAAAAAA", userRepo.getByNickname("TestNickname3").getPassword());
 
     }
 }
