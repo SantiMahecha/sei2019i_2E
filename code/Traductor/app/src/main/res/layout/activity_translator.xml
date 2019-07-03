@@ -13,17 +13,25 @@
         android:inputType="textMultiLine"
         android:minLines="4"
         android:maxLines="10"/>
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="match_parent"
+        android:layout_height="61dp"
+        android:text="Traducir" />
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
+
         <TextView
             android:id="@+id/tv_translated_output"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="16dp"
             android:layout_marginTop="16dp"
-            android:textSize="22sp"
-            android:text="Traduce lo que quieras!!"/>
+            android:padding="16dp"
+            android:text="Traduce lo que quieras!!"
+            android:textSize="22sp" />
     </ScrollView>
 
 </LinearLayout>

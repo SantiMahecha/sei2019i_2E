@@ -10,8 +10,8 @@ import java.sql.SQLException;
 
 public class Database {
 
-    private static final String HOST = "jdbc:mysql://10.203.0.253:3306/";
-    private static final String DB_NAME = "traductordb";
+    private static final String HOST = "jdbc:mysql://10.203.0.150:3306/";
+    private static final String DB_NAME = "mydb";
     private static final String CONNECTION = HOST + DB_NAME;
     private static final String USER = "app";
     private static final String PASS = "0000";
