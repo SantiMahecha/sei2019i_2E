@@ -10,12 +10,13 @@ import java.sql.SQLException;
 
 public class Database {
 
-    private static final String HOST = "jdbc:mysql://10.203.0.253:3306/";
+    private static final String HOST = "jdbc:mysql://10.203.142.11:3306/";
     private static final String DB_NAME = "traductordb";
     private static final String CONNECTION = HOST + DB_NAME;
     private static final String USER = "app";
     private static final String PASS = "0000";
 
+    private boolean isConnected;
     private ConnectionSource connection;
 
     public Database(){
@@ -23,12 +24,16 @@ public class Database {
             connection = new JdbcConnectionSource(CONNECTION, USER, PASS);
             TableUtils.createTableIfNotExists(connection, User.class);
             TableUtils.createTableIfNotExists(connection, Rol.class);
+            isConnected = true;
         } catch (SQLException e) {
             e.printStackTrace();
+            isConnected = false;
         }
     }
 
     public ConnectionSource getConnection(){
         return connection;
     }
+
+    public boolean isConnected(){return isConnected;}
 }
