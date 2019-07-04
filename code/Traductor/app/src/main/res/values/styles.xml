@@ -13,6 +13,7 @@
         <item name="colorControlHighlight">@color/white</item>
         <item name="colorButtonNormal">@color/primary_darker</item>
         <item name="android:textColorHint">@color/accent</item>
+        <item name="editTextColor">@color/accent</item>
     </style>
 
     <style name="AppTheme.Dark" parent="Theme.AppCompat.NoActionBar">

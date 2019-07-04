@@ -34,10 +34,10 @@ public class MainActivity extends AppCompatActivity {
 
     public void buttonFunction(View w){
 
-        //LogInController.LogInResult result = new LogInController(Globals.userRepo).logIn(mUserEditText.getText().toString(), mPassEditText.getText().toString());
-        LogInController.LogInResultEnum result = LogInController.LogInResultEnum.CORRECT;
+        LogInController.LogInResult result = new LogInController(Globals.userRepo).logIn(mUserEditText.getText().toString(), mPassEditText.getText().toString());
+       //LogInController.LogInResultEnum result = LogInController.LogInResultEnum.CORRECT;
 
-        switch(result){
+        switch(result.result){
             case UNKNOWN_USER: messageTextView.setText("Usuario Desconocido");break;
             case BAD_PASSWORD: messageTextView.setText("Contraseña Incorrecta");break;
             case CORRECT:
