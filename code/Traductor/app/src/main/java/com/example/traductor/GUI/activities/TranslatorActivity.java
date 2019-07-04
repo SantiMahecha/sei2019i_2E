@@ -21,7 +21,6 @@ import java.util.Arrays;
 public class TranslatorActivity extends AppCompatActivity {
     private EditText translateEditText;
     private TextView translatedTextView;
-    private Button traduction_triger;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,7 +30,6 @@ public class TranslatorActivity extends AppCompatActivity {
 
         translateEditText = (EditText) findViewById(R.id.ed_translate_input);
         translatedTextView = (TextView) findViewById(R.id.tv_translated_output);
-        traduction_triger = findViewById(R.id.button2);
     }
 
     @Override
@@ -45,30 +43,21 @@ public class TranslatorActivity extends AppCompatActivity {
     }
 
 
-    public void traductorriggerFunction(View w){
-        Text texto1 = new Text(translateEditText.getText().toString());
-
-
-        translatedTextView.setText(Arrays.toString(texto1.separar()).replace(",", "\n\n\n")  //remove the commas
-                .replace("[", "")  //remove the right bracket
-                .replace("]", "")  //remove the left bracket
-        );
-    }
-
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
 
         if (id == R.id.translate_action) {
-            translatedTextView.setText("");
-            showTranslatedText();
-            return true;
+            Text texto1 = new Text(translateEditText.getText().toString());
+
+
+            translatedTextView.setText(Arrays.toString(texto1.separar()).replace(",", "\n\n\n")  //remove the commas
+                    .replace("[", "")  //remove the right bracket
+                    .replace("]", "")  //remove the left bracket
+            );
         }
 
         return super.onOptionsItemSelected(item);
     }
 
-    private void showTranslatedText(){
-        translatedTextView.setText("traducido :0");
-    }
 }
