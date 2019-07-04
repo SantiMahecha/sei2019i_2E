@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Traductor</string>
+    <string name="hint">Inserta el texto a traducir!</string>
+    <string name="user_hint">Usuario</string>
+    <string name="pass_hint">Contraseña</string>
+    <string name="login_btn">Login</string>
+    <string name="logo_description">Traductor Logo</string>
+</resources>
