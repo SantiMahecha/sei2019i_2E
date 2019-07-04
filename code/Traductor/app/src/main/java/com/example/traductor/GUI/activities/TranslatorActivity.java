@@ -4,6 +4,7 @@ package com.example.traductor.GUI.activities;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -25,23 +26,12 @@ public class TranslatorActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_translator);
+
+        Log.i("AAAAAAAAAAAAAAAAAAAAAAAA", "BBBBBBBBBBBBBBBBB");
+
         translateEditText = (EditText) findViewById(R.id.ed_translate_input);
         translatedTextView = (TextView) findViewById(R.id.tv_translated_output);
         traduction_triger = findViewById(R.id.button2);
-        traduction_triger.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-                Text texto1 = new Text(translatedTextView.getText().toString());
-
-                translatedTextView.setText(Arrays.toString(texto1.separar()).replace(",", "\n\n\n")  //remove the commas
-                        .replace("[", "")  //remove the right bracket
-                        .replace("]", "")  //remove the left bracket
-                );
-
-
-            }
-        });
     }
 
     @Override
@@ -52,6 +42,17 @@ public class TranslatorActivity extends AppCompatActivity {
         inflater.inflate(R.menu.menu, menu);
         /* Return true so that the menu is displayed in the Toolbar */
         return true;
+    }
+
+
+    public void traductorriggerFunction(View w){
+        Text texto1 = new Text(translateEditText.getText().toString());
+
+
+        translatedTextView.setText(Arrays.toString(texto1.separar()).replace(",", "\n\n\n")  //remove the commas
+                .replace("[", "")  //remove the right bracket
+                .replace("]", "")  //remove the left bracket
+        );
     }
 
     @Override
