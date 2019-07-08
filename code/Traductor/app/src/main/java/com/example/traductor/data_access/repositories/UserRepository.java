@@ -10,6 +10,7 @@ import com.j256.ormlite.dao.Dao;
 import com.j256.ormlite.dao.DaoManager;
 
 import java.sql.SQLException;
+import java.util.List;
 
 public class UserRepository {
 
@@ -26,9 +27,7 @@ public class UserRepository {
     public void create(User user){
 
         try{
-            Log.i("Total", userDao.countOf() + "");
             userDao.create(user);
-            Log.i("Total Final", userDao.countOf() + "");
         }catch(SQLException ex){
             ex.printStackTrace();
         }
@@ -58,6 +57,16 @@ public class UserRepository {
         }catch(SQLException ex){
             ex.printStackTrace();
         }
+    }
+
+    public List<User> getAll(){
+        try{
+            return userDao.queryForAll();
+        }catch(SQLException ex){
+            ex.printStackTrace();
+        }
+
+        return null;
     }
 
 }

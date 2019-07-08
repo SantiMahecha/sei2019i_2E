@@ -8,6 +8,7 @@ import com.j256.ormlite.dao.Dao;
 import com.j256.ormlite.dao.DaoManager;
 
 import java.sql.SQLException;
+import java.util.List;
 
 public class RolRepository {
 
@@ -54,6 +55,16 @@ public class RolRepository {
         }catch(SQLException ex){
             ex.printStackTrace();
         }
+    }
+
+    public List<Rol> getAll(){
+        try{
+            return rolDao.queryForAll();
+        }catch(SQLException ex){
+            ex.printStackTrace();
+        }
+
+        return null;
     }
 
 }

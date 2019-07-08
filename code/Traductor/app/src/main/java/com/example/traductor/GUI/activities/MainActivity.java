@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.StrictMode;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -11,6 +12,7 @@ import android.widget.TextView;
 import com.example.traductor.R;
 import com.example.traductor.business_logic.Globals;
 import com.example.traductor.business_logic.controllers.LogInController;
+import com.example.traductor.data_access.models.Rol;
 
 public class MainActivity extends AppCompatActivity {
 
