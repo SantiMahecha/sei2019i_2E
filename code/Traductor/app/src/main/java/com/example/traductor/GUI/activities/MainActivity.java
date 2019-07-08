@@ -34,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void buttonFunction(View w){
 
-        LogInController.LogInResult result = new LogInController(Globals.userRepo).logIn(mUserEditText.getText().toString(), mPassEditText.getText().toString());
+        LogInController.LogInResult result = new LogInController().logIn(mUserEditText.getText().toString(), mPassEditText.getText().toString());
        //LogInController.LogInResultEnum result = LogInController.LogInResultEnum.CORRECT;
 
         switch(result.result){

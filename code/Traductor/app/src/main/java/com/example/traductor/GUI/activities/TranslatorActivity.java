@@ -8,13 +8,11 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
 import com.example.traductor.R;
-import com.example.traductor.controllers.Text;
+import com.example.traductor.business_logic.controllers.Text;
 
 import java.util.Arrays;
 

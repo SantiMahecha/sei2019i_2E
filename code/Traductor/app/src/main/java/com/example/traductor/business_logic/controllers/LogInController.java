@@ -1,11 +1,10 @@
 package com.example.traductor.business_logic.controllers;
 
+import com.example.traductor.business_logic.Globals;
 import com.example.traductor.data_access.models.User;
 import com.example.traductor.data_access.repositories.UserRepository;
 
 public class LogInController {
-
-    private UserRepository userRepo;
 
     public class LogInResult{
         public final LogInResultEnum result;
@@ -21,13 +20,11 @@ public class LogInController {
         CORRECT, BAD_PASSWORD, UNKNOWN_USER;
     }
 
-    public LogInController(UserRepository userRepo) {
-        this.userRepo = userRepo;
-    }
+    public LogInController() {}
 
     public LogInResult logIn(String nickname, String password){
 
-        User user = userRepo.getByNickname(nickname);
+        User user = Globals.userRepo.getByNickname(nickname);
 
         if(user == null) return new LogInResult(LogInResultEnum.UNKNOWN_USER, null);
         if(user.getPassword().compareTo(password) != 0) return new LogInResult(LogInResultEnum.BAD_PASSWORD, null);
