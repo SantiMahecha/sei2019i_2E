@@ -15,7 +15,7 @@ public class User {
     @DatabaseField(canBeNull = false, foreign = true)
     private Rol rol;
 
-    @DatabaseField(canBeNull = false)
+    @DatabaseField(canBeNull = false, defaultValue = "false")
     private boolean admin;
 
     public User(){ admin = false;}
@@ -47,5 +47,10 @@ public class User {
     }
 
     public void setAdmin(boolean admin) {this.admin = admin;}
+
+    @Override
+    public String toString(){
+        return String.format("Nickname:%s\tPassword:%s\tRol:%s\tAdmin:%b", nickname, password, rol.getName(), admin);
+    }
 
 }

@@ -4,6 +4,7 @@ import android.util.Log;
 
 import com.example.traductor.data_access.database.Database;
 import com.example.traductor.data_access.models.Rol;
+import com.example.traductor.data_access.models.User;
 import com.j256.ormlite.dao.Dao;
 import com.j256.ormlite.dao.DaoManager;
 
@@ -65,6 +66,14 @@ public class RolRepository {
         }
 
         return null;
+    }
+
+    public void refreshUserRol(User user){
+        try{
+            rolDao.refresh(user.getRol());
+        }catch(SQLException ex){
+            ex.printStackTrace();
+        }
     }
 
 }
