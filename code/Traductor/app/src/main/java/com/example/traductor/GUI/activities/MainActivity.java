@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.StrictMode;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -11,6 +12,11 @@ import android.widget.TextView;
 import com.example.traductor.R;
 import com.example.traductor.business_logic.Globals;
 import com.example.traductor.business_logic.controllers.LogInController;
+import com.example.traductor.data_access.models.Rol;
+
+import static com.example.traductor.business_logic.controllers.LogInController.LogInResultEnum.BAD_PASSWORD;
+import static com.example.traductor.business_logic.controllers.LogInController.LogInResultEnum.CORRECT;
+import static com.example.traductor.business_logic.controllers.LogInController.LogInResultEnum.UNKNOWN_USER;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -34,15 +40,15 @@ public class MainActivity extends AppCompatActivity {
 
     public void buttonFunction(View w){
 
-        LogInController.LogInResult result = new LogInController(Globals.userRepo).logIn(mUserEditText.getText().toString(), mPassEditText.getText().toString());
+        LogInController.LogInResult result = new LogInController().logIn(mUserEditText.getText().toString(), mPassEditText.getText().toString());
        //LogInController.LogInResultEnum result = LogInController.LogInResultEnum.CORRECT;
 
-        switch(result.result){
+       switch(result.result){
             case UNKNOWN_USER: messageTextView.setText("Usuario Desconocido");break;
             case BAD_PASSWORD: messageTextView.setText("Contraseña Incorrecta");break;
             case CORRECT:
-                messageTextView                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 .setText("Iniciando Sesión");
                 startActivity(new Intent(this, TranslatorActivity.class));
         }
+        startActivity(new Intent(this, TranslatorActivity.class));
     }
 }

@@ -1,25 +1,20 @@
-package com.example.traductor.controllers;
+package com.example.traductor.business_logic.controllers;
 
 import java.util.Arrays;
 import java.util.LinkedList;
 
-public class Text {
+public class
+Text {
 
     private char[] texto;
     private LinkedList<String> textos;
 
-
     public Text(String aTraducir) {
-
-
         texto = aTraducir.toCharArray();
-
-
     }
 
     public String[] separar() {
 
-        int indexy = 0;
         int indexx = 0;
         int i = 0;
         textos = new LinkedList<>();
@@ -33,7 +28,6 @@ public class Text {
                 textos.add(Arrays.toString(Arrays.copyOf(a, indexx)).replace(",", ""));
                 a = new char[texto.length];
 
-                indexy++;
                 indexx = 0;
                 i++;
 
@@ -44,17 +38,14 @@ public class Text {
                 indexx++;
                 i++;
 
-
                 if (i == texto.length) {
 
                     System.out.println(Arrays.toString(Arrays.copyOf(a, indexx)));
                     textos.add(Arrays.toString(Arrays.copyOf(a, indexx)).replace(",", ""));
                     a = new char[texto.length];
 
-                    indexy++;
                     indexx = 0;
                     i++;
-
                 }
             }
 

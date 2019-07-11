@@ -12,10 +12,13 @@ public class User {
     @DatabaseField(canBeNull = false)
     private String password;
 
-    @DatabaseField(canBeNull = true, foreign = true)
+    @DatabaseField(canBeNull = false, foreign = true)
     private Rol rol;
 
-    public User(){}
+    @DatabaseField(canBeNull = false, defaultValue = "false")
+    private boolean admin;
+
+    public User(){ admin = false;}
 
     public String getNickname() {
         return nickname;
@@ -29,6 +32,8 @@ public class User {
         return rol;
     }
 
+    public boolean getAdmin() {return admin;}
+
     public void setNickname(String nickname) {
         this.nickname = nickname;
     }
@@ -39,6 +44,13 @@ public class User {
 
     public void setRol(Rol rol) {
         this.rol = rol;
+    }
+
+    public void setAdmin(boolean admin) {this.admin = admin;}
+
+    @Override
+    public String toString(){
+        return String.format("Nickname:%s\tPassword:%s\tRol:%s\tAdmin:%b", nickname, password, rol.getName(), admin);
     }
 
 }
