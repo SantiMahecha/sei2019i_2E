@@ -3,7 +3,8 @@ package com.example.traductor.business_logic.controllers;
 import java.util.Arrays;
 import java.util.LinkedList;
 
-public class Text {
+public class
+Text {
 
     private char[] texto;
     private LinkedList<String> textos;

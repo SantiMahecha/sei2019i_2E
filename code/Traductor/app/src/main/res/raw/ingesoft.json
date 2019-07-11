@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "traductor-ingesoft1",
+  "private_key_id": "fce68092a1aede66c1f0e6182d5450bb4ab2f1f4",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQCwBmFN7TaZAFHe\nExwtB6O0QgxfCGPtV6yGZ5P5FgScwqhf8zk0qqlXX6M6vjpnH6XMQzIO4cDT1Shr\nTthP+HtsJeO7tTxHLjOcibYzkd6U1mgteaF9ktwI0CS8aR1m3PFmMWF+VgXwB+HR\njk69DePYM0C+KhSyP/e+QzXrLwlU33XpSuoj2XUI8NwVppcq2mESi6SGKA3JIjmy\nmjC8fzgZNlbKkApP1QBQA1m0LFHcVkgxKa7iaTQOqTJbhmZWaQYfZiNAUHtfWOoP\nvjvd1YAJ7xyeNH3q7ZuMD16BdsdS/WrPdF/5JfBpMEpnUZkPyVzclMPkW0Bvb3Zd\niVBTXjWZAgMBAAECgf8Vbga/9faE/1pNhFtpyq74wxG+gBxU84I4MA6pGdp15eeZ\nxtgFZsGMYZhTDoBjDaH3EYyGmKAL1LzsU4JXj2jMlyWiie33ZyiMEOKdufnfJOXf\nThowWjDE4eeXCIphJi+SwXBHxoadMlh2VVzrUfBAjKd/1J+waRlAO0PVM2TExZFd\np08edN22bHHxD3qmZtl0S6Lj2vRo4wR9oSEQEFi/+sEi7OcwonBpONNJn62IxYzM\nA15NTF1UO/wMO0aosXBs03x6qSKwGsVUpt9/8GC5iCYWevq6/x97d2LxXCeiuK1a\n0lQKWbHzKWN+nGxdBOd0CfVc40A8UAPGVysQq6kCgYEA25uJw911M3na7OCivbM+\nEAj1hCOlJ4oaIL6yOfOHnrPjmcp5V6DdjFUfzSQ4rHjrBRgndP1QtNw1jGnWdV4I\namyE52wwcxZXFKfy+U1zBEvNU2UCv9njBlJ5kZKmlRu+o2mylky2YFC2EHvoINgg\nX0sKyRQq9jkXO7ZT0XZjhB0CgYEAzTHs47G6n/+zcP+UPmmHyVJSTWgOcRMoLn5V\n3e8VF4DC9Yud5yBIiCQBGB6+ihRurVCeTTXdob6lF/2aHa1WOCkr4xNCry0GR5Ah\nM6D80KTdAbzsvbQlzChscJaK8ejcYXeQXqg6+ceDxEXEf0XSmdvupAFd5qH5FPkr\nAw+WRq0CgYEAomauhYLzFiMqC/y/PMwdvFvzvElj7A6L7eU4BfUbOPjM+sEp5OyY\nihu1Tc5YfutY2caX/0MJeQZUL0dhiiAE1zbzPfTbC3Dc6vCclVJ6GRY5fE95rgji\ng51gO5AY0rHW1B/pKo8GW8m0KhKHgipyHiZvjm30q2tizAy0hXUoeN0CgYEAo+wl\nZYS/JUB9lmDmibF+g2sbSrE9EEIQkIvmhuSPQfZgSQ6fN1vH9dJleWJeLyrBe/1y\naRYGF0eY1gCHlPu7bCQf5kilthHO+W5/x6HtNbTuxYuqyKXYqC8G6i6pkzXGkKqW\nj7fvXUlwz2Q45L/fzYAwNZ7N6AgvVvzyyoAyOgUCgYAfY/yHp9oj11BSNvUuNj6b\nGk9rDfCmyyfkaYzO4hGAHpi3voWJWxWdUmI7JVLx2sfClNcsJhRWzsCTzMbQM4ir\nJBpG4CXjsrdRdv0+eFo2DgeFvIjhAdi/OFsBP1sO9qHl1kkPs3UHLw5jwlqEwxU3\nBqGUinFwZPkNIX6ecgAPEA==\n-----END PRIVATE KEY-----\n",
+  "client_email": "starting-account-d0rs14iscir6@traductor-ingesoft1.iam.gserviceaccount.com",
+  "client_id": "102799850424841517427",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/starting-account-d0rs14iscir6%40traductor-ingesoft1.iam.gserviceaccount.com"
+}
