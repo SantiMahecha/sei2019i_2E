@@ -4,10 +4,12 @@ import android.util.Log;
 
 import com.example.traductor.data_access.database.Database;
 import com.example.traductor.data_access.models.Rol;
+import com.example.traductor.data_access.models.User;
 import com.j256.ormlite.dao.Dao;
 import com.j256.ormlite.dao.DaoManager;
 
 import java.sql.SQLException;
+import java.util.List;
 
 public class RolRepository {
 
@@ -51,6 +53,24 @@ public class RolRepository {
     public void delete(Rol rol){
         try{
             rolDao.delete(rol);
+        }catch(SQLException ex){
+            ex.printStackTrace();
+        }
+    }
+
+    public List<Rol> getAll(){
+        try{
+            return rolDao.queryForAll();
+        }catch(SQLException ex){
+            ex.printStackTrace();
+        }
+
+        return null;
+    }
+
+    public void refreshUserRol(User user){
+        try{
+            rolDao.refresh(user.getRol());
         }catch(SQLException ex){
             ex.printStackTrace();
         }
