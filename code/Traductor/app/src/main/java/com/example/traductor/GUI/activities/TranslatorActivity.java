@@ -5,14 +5,19 @@ import android.os.Bundle;
 import android.os.StrictMode;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.widget.Adapter;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.traductor.business_logic.controllers.Translate_controller;
+import com.example.traductor.business_logic.controllers.TranslatorAdapter;
 import com.google.auth.oauth2.GoogleCredentials;
 import com.google.cloud.translate.Translate;
 import com.google.cloud.translate.Translate.TranslateOption;
@@ -26,9 +31,11 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.Arrays;
 
-public class TranslatorActivity extends AppCompatActivity {
+public class TranslatorActivity extends AppCompatActivity implements TranslatorAdapter.TranslatorAdapterOnClickHandler {
     private EditText translateEditText;
     private TextView translatedTextView;
+    private RecyclerView mRecyclerView;
+    private TranslatorAdapter mAdapter;
     Translate translate = TranslateOptions.getDefaultInstance().getService();
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -39,6 +46,13 @@ public class TranslatorActivity extends AppCompatActivity {
 
         translateEditText = (EditText) findViewById(R.id.ed_translate_input);
         translatedTextView = (TextView) findViewById(R.id.tv_translated_output);
+
+        mRecyclerView = (RecyclerView) findViewById(R.id.rv_translations);
+        LinearLayoutManager layoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
+        mRecyclerView.setLayoutManager(layoutManager);
+
+        mAdapter = new TranslatorAdapter(this);
+        mRecyclerView.setAdapter(mAdapter);
     }
 
     @Override
@@ -57,24 +71,18 @@ public class TranslatorActivity extends AppCompatActivity {
         int id = item.getItemId();
 
         if (id == R.id.translate_action) {
-
+        mAdapter.setTextData(null);
 
             if(!translateEditText.getText().equals(null)){
                 Text texto = new Text(translateEditText.getText().toString());
-                //String txt="t e   q u i e r o";
-
+                String[] paragraphs = texto.separar();
 
                 getTranslateService();
+                for(int i = 0; i<paragraphs.length; i++){
+                    paragraphs[i] = translate_final(paragraphs[i], "en");
+                }
 
-                System.out.println("pedro: "+Arrays.toString(texto.separar()).replace(',','\n').replace('[',' ').replace(']',' '));
-            translatedTextView.setText(translate_final(Arrays.toString(texto.separar()).replace(',',' ').replace('[',' ').replace(']',' '),"en"));
-                //translatedTextView.setText(translate_final(txt,"en"));
-                //translatedTextView.setText(Arrays.toString(texto.separar()).replace(',','\n').replace('[',' ').replace(']',' '));
-
-
-            }
-            else{
-
+                mAdapter.setTextData(paragraphs);
             }
         }
 
@@ -110,5 +118,10 @@ public class TranslatorActivity extends AppCompatActivity {
         //Translated text and original text are set to TextViews:
 
 
+    }
+
+    @Override
+    public void onClick(String translateForParagraph) {
+        Toast.makeText(this, translateForParagraph, Toast.LENGTH_LONG).show();
     }
 }
