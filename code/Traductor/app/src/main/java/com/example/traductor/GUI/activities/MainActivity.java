@@ -36,6 +36,9 @@ public class MainActivity extends AppCompatActivity {
         mUserEditText = (EditText) findViewById(R.id.ed_user);
         mPassEditText = (EditText) findViewById(R.id.ed_pass);
         messageTextView = (TextView) findViewById(R.id.message);
+
+        Globals.historicRepo.grtByUser(null);
+
     }
 
     public void buttonFunction(View w){
@@ -49,6 +52,6 @@ public class MainActivity extends AppCompatActivity {
             case CORRECT:
                 startActivity(new Intent(this, TranslatorActivity.class));
         }
-        startActivity(new Intent(this, TranslatorActivity.class));
+        //startActivity(new Intent(this, TranslatorActivity.class));
     }
 }

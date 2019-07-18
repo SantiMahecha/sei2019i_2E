@@ -1,5 +1,6 @@
 package com.example.traductor.data_access.database;
 
+import com.example.traductor.data_access.models.Historic;
 import com.example.traductor.data_access.models.Rol;
 import com.example.traductor.data_access.models.User;
 import com.j256.ormlite.jdbc.JdbcConnectionSource;
@@ -10,9 +11,8 @@ import java.sql.SQLException;
 
 public class Database {
 
-
-    private static final String HOST = "jdbc:mysql://10.203.0.176:3306/";
-
+    private static final String IP = "10.203.173.94";
+    private static final String HOST = "jdbc:mysql://" + IP + ":3306/";
     private static final String DB_NAME = "traductordb";
     private static final String CONNECTION = HOST + DB_NAME;
     private static final String USER = "app";
@@ -26,6 +26,7 @@ public class Database {
             connection = new JdbcConnectionSource(CONNECTION, USER, PASS);
             TableUtils.createTableIfNotExists(connection, User.class);
             TableUtils.createTableIfNotExists(connection, Rol.class);
+            TableUtils.createTableIfNotExists(connection, Historic.class);
             isConnected = true;
         } catch (SQLException e) {
             e.printStackTrace();

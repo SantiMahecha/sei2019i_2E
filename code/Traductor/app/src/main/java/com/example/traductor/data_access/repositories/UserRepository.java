@@ -3,6 +3,7 @@ package com.example.traductor.data_access.repositories;
 import android.util.Log;
 
 import com.example.traductor.data_access.database.Database;
+import com.example.traductor.data_access.models.Historic;
 import com.example.traductor.data_access.models.User;
 import com.j256.ormlite.dao.CloseableIterable;
 import com.j256.ormlite.dao.CloseableIterator;
@@ -67,6 +68,14 @@ public class UserRepository {
         }
 
         return null;
+    }
+
+    public void refreshHistoryUser(Historic historic){
+        try{
+            userDao.refresh(historic.getUser());
+        }catch(SQLException ex){
+            ex.printStackTrace();
+        }
     }
 
 }
