@@ -35,6 +35,7 @@ public class TranslatorActivity extends AppCompatActivity implements TranslatorA
     private EditText translateEditText;
     private TextView translatedTextView;
     private RecyclerView mRecyclerView;
+    private String[] init  = {"hola k px"};
     private TranslatorAdapter mAdapter;
     Translate translate = TranslateOptions.getDefaultInstance().getService();
     @Override
@@ -52,7 +53,11 @@ public class TranslatorActivity extends AppCompatActivity implements TranslatorA
         mRecyclerView.setLayoutManager(layoutManager);
 
         mAdapter = new TranslatorAdapter(this);
+        mAdapter.setTextData(init);
         mRecyclerView.setAdapter(mAdapter);
+
+
+
     }
 
     @Override
