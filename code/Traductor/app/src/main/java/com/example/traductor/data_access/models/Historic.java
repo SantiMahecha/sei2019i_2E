@@ -21,10 +21,10 @@ public class Historic {
     private String traduction;
 
     @DatabaseField(canBeNull = false)
-    private String idiomaOrigen;
+    private String originLanguaje;
 
     @DatabaseField(canBeNull = false)
-    private String idiomaDestino;
+    private String destinyLanguaje;
 
     public Historic(){}
 
@@ -41,12 +41,12 @@ public class Historic {
         return traduction;
     }
 
-    public String getIdiomaOrigen() {
-        return idiomaOrigen;
+    public String getOriginLanguaje() {
+        return originLanguaje;
     }
 
-    public String getIdiomaDestino() {
-        return idiomaDestino;
+    public String getDestinyLanguaje() {
+        return destinyLanguaje;
     }
 
     public void setUser(User user) {
@@ -61,13 +61,11 @@ public class Historic {
         this.traduction = traduction;
     }
 
-    public void setIdiomaOrigen(String idiomaOrigen) {
-        this.idiomaOrigen = idiomaOrigen;
+    public void setOriginLanguaje(String originLanguaje) {
+        this.originLanguaje = originLanguaje;
     }
 
-    public void setIdiomaDestino(String idiomaDestino) {
-        this.idiomaDestino = idiomaDestino;
-    }
+    public void setDestinyLanguaje(String destinyLanguaje) { this.destinyLanguaje = destinyLanguaje; }
 
     public long getId() {
         return id;

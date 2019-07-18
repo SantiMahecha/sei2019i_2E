@@ -9,8 +9,8 @@ public class SaveHistoricController {
 
     public Historic save(String toTraduce, String traduction, String originLanguaje, String destinyLanguaje){
         Historic historic = new Historic();
-        historic.setIdiomaOrigen(originLanguaje);
-        historic.setIdiomaDestino(destinyLanguaje);
+        historic.setOriginLanguaje(originLanguaje);
+        historic.setDestinyLanguaje(destinyLanguaje);
         historic.setToTraduce(toTraduce);
         historic.setTraduction(traduction);
         historic.setUser(Globals.loggedUser);
