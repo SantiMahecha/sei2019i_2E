@@ -35,8 +35,7 @@ public class TranslatorAdapter extends RecyclerView.Adapter<TranslatorAdapter.Tr
 
     @Override
     public void onBindViewHolder(@NonNull TranslatorAdapterViewHolder translatorAdapterViewHolder, int i) {
-        String paragraph = text[i];
-        translatorAdapterViewHolder.mParagraphTv.setText(paragraph);
+        translatorAdapterViewHolder.mParagraphTv.setText(text[i]);
     }
 
     @Override

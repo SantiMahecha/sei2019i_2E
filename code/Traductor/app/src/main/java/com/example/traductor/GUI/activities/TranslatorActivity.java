@@ -1,6 +1,8 @@
 package com.example.traductor.GUI.activities;
 
 
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.StrictMode;
 import android.support.annotation.Nullable;
@@ -11,16 +13,13 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.widget.Adapter;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.traductor.business_logic.controllers.Translate_controller;
 import com.example.traductor.business_logic.controllers.TranslatorAdapter;
 import com.google.auth.oauth2.GoogleCredentials;
 import com.google.cloud.translate.Translate;
-import com.google.cloud.translate.Translate.TranslateOption;
 import com.google.cloud.translate.TranslateOptions;
 import com.google.cloud.translate.Translation;
 
@@ -29,13 +28,12 @@ import com.example.traductor.business_logic.controllers.Text;
 
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.Arrays;
 
 public class TranslatorActivity extends AppCompatActivity implements TranslatorAdapter.TranslatorAdapterOnClickHandler {
     private EditText translateEditText;
     private TextView translatedTextView;
     private RecyclerView mRecyclerView;
-    private String[] init  = {"hola k px"};
+    private String[] init  = {"hola k px", "como van esas traducindas ñero"};
     private TranslatorAdapter mAdapter;
     Translate translate = TranslateOptions.getDefaultInstance().getService();
     @Override
@@ -46,14 +44,13 @@ public class TranslatorActivity extends AppCompatActivity implements TranslatorA
         Log.i("AAAAAAAAAAAAAAAAAAAAAAA", "BBBBBBBBBBBBBBBBB");
 
         translateEditText = (EditText) findViewById(R.id.ed_translate_input);
-        translatedTextView = (TextView) findViewById(R.id.tv_translated_output);
+        translatedTextView = (TextView) findViewById(R.id.tv_translate_text);
 
         mRecyclerView = (RecyclerView) findViewById(R.id.rv_translations);
         LinearLayoutManager layoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
         mRecyclerView.setLayoutManager(layoutManager);
 
         mAdapter = new TranslatorAdapter(this);
-        mAdapter.setTextData(init);
         mRecyclerView.setAdapter(mAdapter);
 
 
@@ -127,6 +124,11 @@ public class TranslatorActivity extends AppCompatActivity implements TranslatorA
 
     @Override
     public void onClick(String translateForParagraph) {
+        Context context = this;
+        Class nextClass = DetailedParagraphActivity.class;
+        Intent toStartNextActivity = new Intent(context, nextClass);
+        toStartNextActivity.putExtra(Intent.EXTRA_TEXT, translateForParagraph);
+        startActivity(toStartNextActivity);
         Toast.makeText(this, translateForParagraph, Toast.LENGTH_LONG).show();
     }
 }

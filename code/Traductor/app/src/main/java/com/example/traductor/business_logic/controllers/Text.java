@@ -11,7 +11,7 @@ public class Text {
     }
 
     public String[] separar() {
-        return texto.split("\\n?\\r");
+        return texto.split("\n");
     }
 
 }
