@@ -12,7 +12,13 @@ import android.widget.TextView;
 import com.example.traductor.R;
 import com.example.traductor.business_logic.Globals;
 import com.example.traductor.business_logic.controllers.LogInController;
+import com.example.traductor.business_logic.controllers.SaveHistoricController;
+import com.example.traductor.data_access.models.Historic;
 import com.example.traductor.data_access.models.Rol;
+
+import java.util.Iterator;
+import java.util.LinkedList;
+import java.util.List;
 
 import static com.example.traductor.business_logic.controllers.LogInController.LogInResultEnum.BAD_PASSWORD;
 import static com.example.traductor.business_logic.controllers.LogInController.LogInResultEnum.CORRECT;
@@ -37,8 +43,6 @@ public class MainActivity extends AppCompatActivity {
         mPassEditText = (EditText) findViewById(R.id.ed_pass);
         messageTextView = (TextView) findViewById(R.id.message);
 
-        Globals.historicRepo.grtByUser(null);
-
     }
 
     public void buttonFunction(View w){
@@ -50,6 +54,8 @@ public class MainActivity extends AppCompatActivity {
             case UNKNOWN_USER: messageTextView.setText("Usuario Desconocido");break;
             case BAD_PASSWORD: messageTextView.setText("Contraseña Incorrecta");break;
             case CORRECT:
+                Globals.loggedUser = result.user;
+
                 startActivity(new Intent(this, TranslatorActivity.class));
         }
         //startActivity(new Intent(this, TranslatorActivity.class));

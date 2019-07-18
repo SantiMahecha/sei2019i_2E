@@ -38,7 +38,7 @@ public class HistoricRepository {
         }
     }
 
-    public List<Historic> grtByUser(User user){
+    public List<Historic> getByUser(User user){
         try{
             PreparedQuery<Historic> query = historicDao.queryBuilder().where().eq(Historic.USER_FIELD_NAME, user.getNickname()).prepare();
             return historicDao.query(query);

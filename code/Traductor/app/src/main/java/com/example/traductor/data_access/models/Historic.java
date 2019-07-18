@@ -3,7 +3,7 @@ package com.example.traductor.data_access.models;
 import com.j256.ormlite.field.DatabaseField;
 import com.j256.ormlite.table.DatabaseTable;
 
-@DatabaseTable(tableName = "User")
+@DatabaseTable(tableName = "Historic")
 public class Historic {
 
     public static final String USER_FIELD_NAME = "user";
@@ -21,7 +21,10 @@ public class Historic {
     private String traduction;
 
     @DatabaseField(canBeNull = false)
-    private String idioma;
+    private String idiomaOrigen;
+
+    @DatabaseField(canBeNull = false)
+    private String idiomaDestino;
 
     public Historic(){}
 
@@ -38,8 +41,12 @@ public class Historic {
         return traduction;
     }
 
-    public String getIdioma() {
-        return idioma;
+    public String getIdiomaOrigen() {
+        return idiomaOrigen;
+    }
+
+    public String getIdiomaDestino() {
+        return idiomaDestino;
     }
 
     public void setUser(User user) {
@@ -54,8 +61,12 @@ public class Historic {
         this.traduction = traduction;
     }
 
-    public void setIdioma(String idioma) {
-        this.idioma = idioma;
+    public void setIdiomaOrigen(String idiomaOrigen) {
+        this.idiomaOrigen = idiomaOrigen;
+    }
+
+    public void setIdiomaDestino(String idiomaDestino) {
+        this.idiomaDestino = idiomaDestino;
     }
 
     public long getId() {
