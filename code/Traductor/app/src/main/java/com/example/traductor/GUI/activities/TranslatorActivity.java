@@ -12,24 +12,19 @@ import android.view.MenuItem;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import com.example.traductor.business_logic.controllers.Translate_controller;
-import com.google.auth.oauth2.GoogleCredentials;
-import com.google.cloud.translate.Translate;
-import com.google.cloud.translate.Translate.TranslateOption;
-import com.google.cloud.translate.TranslateOptions;
-import com.google.cloud.translate.Translation;
+
 
 import com.example.traductor.R;
 import com.example.traductor.business_logic.controllers.Text;
+import com.example.traductor.business_logic.controllers.Translate_controller;
 
-import java.io.IOException;
-import java.io.InputStream;
+
 import java.util.Arrays;
 
 public class TranslatorActivity extends AppCompatActivity {
     private EditText translateEditText;
     private TextView translatedTextView;
-    Translate translate = TranslateOptions.getDefaultInstance().getService();
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -61,16 +56,11 @@ public class TranslatorActivity extends AppCompatActivity {
 
             if(!translateEditText.getText().equals(null)){
                 Text texto = new Text(translateEditText.getText().toString());
-                //String txt="t e   q u i e r o";
+                Translate_controller traductor = new Translate_controller(this);
 
-
-                getTranslateService();
-
-                System.out.println("pedro: "+Arrays.toString(texto.separar()).replace(',','\n').replace('[',' ').replace(']',' '));
-            translatedTextView.setText(translate_final(Arrays.toString(texto.separar()).replace(',',' ').replace('[',' ').replace(']',' '),"en"));
-                //translatedTextView.setText(translate_final(txt,"en"));
-                //translatedTextView.setText(Arrays.toString(texto.separar()).replace(',','\n').replace('[',' ').replace(']',' '));
-
+                traductor.getTranslateService();
+                String salida=traductor.translate_final(Arrays.toString(texto.separar()).replace(',','\n').replace('[',' ').replace(']',' '),"en");
+                translatedTextView.setText(salida);
 
             }
             else{
@@ -80,35 +70,5 @@ public class TranslatorActivity extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
-    public void getTranslateService() {
 
-        StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
-        StrictMode.setThreadPolicy(policy);
-
-        try (InputStream is = getResources().openRawResource(R.raw.ingesoft)) {
-
-            //Get credentials:
-            final GoogleCredentials myCredentials = GoogleCredentials.fromStream(is);
-
-            //Set credentials and get translate service:
-            TranslateOptions translateOptions = TranslateOptions.newBuilder().setCredentials(myCredentials).build();
-            translate = translateOptions.getService();
-
-        } catch (IOException ioe) {
-            ioe.printStackTrace();
-
-        }
-    }
-
-    public String translate_final(String texto,String targetLanguage) {
-
-        //Get input text to be translated:
-
-        Translation translation = translate.translate(texto,Translate.TranslateOption.sourceLanguage("es"), Translate.TranslateOption.targetLanguage(targetLanguage));
-        return translation.getTranslatedText();
-
-        //Translated text and original text are set to TextViews:
-
-
-    }
 }
