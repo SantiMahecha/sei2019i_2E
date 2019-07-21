@@ -44,12 +44,13 @@ public class Translate_controller {
     public String translate_final(String texto,String originLenguaje,String targetLanguage) {
 
         //Get input text to be translated:
-
-        Translation translation = translate.translate(texto,Translate.TranslateOption.sourceLanguage(originLenguaje), Translate.TranslateOption.targetLanguage(targetLanguage));
-        return translation.getTranslatedText();
-
-        //Translated text and original text are set to TextViews:
-
+        if(originLenguaje.equals(targetLanguage)){
+            return "son el mismo lenguaje no tiene logica";
+        }
+        else {
+            Translation translation = translate.translate(texto, Translate.TranslateOption.sourceLanguage(originLenguaje), Translate.TranslateOption.targetLanguage(targetLanguage));
+            return translation.getTranslatedText();
+        }
 
     }
 
