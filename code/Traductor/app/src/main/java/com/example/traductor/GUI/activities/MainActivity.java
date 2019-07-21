@@ -57,7 +57,7 @@ public class MainActivity extends AppCompatActivity {
                 Globals.loggedUser = result.user;
 
                 startActivity(new Intent(this, TranslatorActivity.class));
-<<<<<<< HEAD
+
         }*/
         startActivity(new Intent(this, TranslatorActivity.class));
 

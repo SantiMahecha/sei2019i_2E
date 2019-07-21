@@ -41,11 +41,11 @@ public class Translate_controller {
         }
     }
 
-    public String translate_final(String texto,String targetLanguage) {
+    public String translate_final(String texto,String originLenguaje,String targetLanguage) {
 
         //Get input text to be translated:
 
-        Translation translation = translate.translate(texto,Translate.TranslateOption.sourceLanguage("es"), Translate.TranslateOption.targetLanguage(targetLanguage));
+        Translation translation = translate.translate(texto,Translate.TranslateOption.sourceLanguage(originLenguaje), Translate.TranslateOption.targetLanguage(targetLanguage));
         return translation.getTranslatedText();
 
         //Translated text and original text are set to TextViews:
@@ -53,7 +53,11 @@ public class Translate_controller {
 
     }
 
+    public String Detector(String texto){
 
+      return  translate.detect(texto).getLanguage();
+
+    }
 
 
 }

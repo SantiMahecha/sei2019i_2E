@@ -59,7 +59,11 @@ public class TranslatorActivity extends AppCompatActivity {
                 Translate_controller traductor = new Translate_controller(this);
 
                 traductor.getTranslateService();
-                String salida=traductor.translate_final(Arrays.toString(texto.separar()).replace(',','\n').replace('[',' ').replace(']',' '),"en");
+
+                String entrada=Arrays.toString(texto.separar()).replace(',','\n').replace('[',' ').replace(']',' ');
+                String lenEntrada=traductor.Detector(entrada);
+                String lenSalida="en";
+                String salida=traductor.translate_final(entrada,lenEntrada,lenSalida);
                 translatedTextView.setText(salida);
 
             }
