@@ -1,8 +1,0 @@
-Requisitos no Funcionales:
-
-El sistema de software tendrá predominancia de color azul.
-El sistema de software debe permitir que el usuario del traductor tenga nombre completo del usuario y una contraseña de acceso al sistema.
-El sistema de software debe permitir que el administrador del traductor tenga nombre completo del usuario y una contraseña de acceso al sistema.
-El sistema de software debe estar activo las 24 horas del día.
-El sistema de software debe permitir que el usuario, dependiendo de su rol, pueda traducir a cualquier idioma que le sea permitido.
-El sistema de software debe permitir al usuario ver su historial de traducciones.
