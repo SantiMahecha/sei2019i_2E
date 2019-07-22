@@ -27,6 +27,10 @@ public class RegisterController {
 
         if(!(user == null)) return new RegisterResult(RegisterResultEnum.USER_EXISTS, null);
         //crear usuario ?
+        user = new User();
+        user.setNickname(nickname);
+        user.setPassword(password);
+        Globals.userRepo.create(user);
         return new RegisterResult(RegisterResultEnum.CORRECT, user);
     }
 

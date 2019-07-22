@@ -23,6 +23,8 @@
         </activity>
         <activity android:name="com.example.traductor.GUI.activities.RegisterActivity">
         </activity>
+        <activity android:name="com.example.traductor.GUI.activities.SetRoleActivity">
+        </activity>
     </application>
 
 </manifest>
