@@ -49,6 +49,7 @@ public class DetailedParagraphActivity extends AppCompatActivity implements Adap
     }
 
     void buttonTranslate(View v){
+        controller.getTranslateService();
         String lenEntrada = controller.Detector(paragraph);
         String salida = controller.translate_final(paragraph,lenEntrada,languageSelected);
         translatedTv.setText(salida);
