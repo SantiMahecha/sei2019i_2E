@@ -13,7 +13,15 @@
         android:layout_height="wrap_content"
         android:textSize="32sp"
         android:layout_gravity="center_horizontal"
+        android:padding="16dp"
         android:gravity="center_horizontal" />
+    <Spinner
+        android:id="@+id/sp_lang_chooser"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        android:layout_gravity="center_horizontal"
+        />
     <android.support.v7.widget.AppCompatButton
         android:id="@+id/bt_translate"
         android:layout_width="match_parent"
