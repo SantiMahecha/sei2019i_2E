@@ -61,6 +61,7 @@ public class MainActivity extends AppCompatActivity {
             case UNKNOWN_USER:
                 Toast.makeText(this, "Usuario desconocido", Toast.LENGTH_SHORT).show(); break;
             case CORRECT:
+                Toast.makeText(this, "Iniciando sesións", Toast.LENGTH_SHORT).show();
                 Globals.loggedUser = result.user;
                 Globals.rolRepo.refreshUserRol(Globals.loggedUser);
                 startActivity(new Intent(this, TranslatorActivity.class));
