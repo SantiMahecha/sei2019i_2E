@@ -1,4 +1,4 @@
-package com.example.traductor.business_logic.controllers;
+package com.example.traductor.GUI.activities;
 
 import android.content.Context;
 import android.support.annotation.NonNull;

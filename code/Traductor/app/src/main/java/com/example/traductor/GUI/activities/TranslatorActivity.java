@@ -17,7 +17,6 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.traductor.business_logic.controllers.TranslatorAdapter;
 import com.google.auth.oauth2.GoogleCredentials;
 import com.google.cloud.translate.Translate;
 import com.google.cloud.translate.TranslateOptions;
@@ -78,12 +77,6 @@ public class TranslatorActivity extends AppCompatActivity implements TranslatorA
             if(!translateEditText.getText().equals(null)){
                 Text texto = new Text(translateEditText.getText().toString());
                 String[] paragraphs = texto.separar();
-
-                getTranslateService();
-                for(int i = 0; i<paragraphs.length; i++){
-                    paragraphs[i] = translate_final(paragraphs[i], "en");
-                }
-
                 mAdapter.setTextData(paragraphs);
             }
         }
@@ -129,6 +122,5 @@ public class TranslatorActivity extends AppCompatActivity implements TranslatorA
         Intent toStartNextActivity = new Intent(context, nextClass);
         toStartNextActivity.putExtra(Intent.EXTRA_TEXT, translateForParagraph);
         startActivity(toStartNextActivity);
-        Toast.makeText(this, translateForParagraph, Toast.LENGTH_LONG).show();
     }
 }
