@@ -8,8 +8,10 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.traductor.R;
+import com.example.traductor.business_logic.Globals;
 import com.example.traductor.business_logic.controllers.Text;
 import com.example.traductor.business_logic.controllers.Translate_controller;
 import com.j256.ormlite.stmt.query.In;
@@ -49,6 +51,19 @@ public class DetailedParagraphActivity extends AppCompatActivity implements Adap
     }
 
     void buttonTranslate(View v){
+
+        boolean canTraduceLanguaje = false;
+        switch(languageSelected){
+            case "en": canTraduceLanguaje = Globals.loggedUser.getRol().isEnglish(); break;
+            case "es": canTraduceLanguaje = Globals.loggedUser.getRol().isSpanish(); break;
+            case "fr": canTraduceLanguaje = Globals.loggedUser.getRol().isFrench(); break;
+        }
+
+        if(!canTraduceLanguaje){
+            Toast.makeText(this, String.format("No puede traducir al lenguaje seleccionado"), Toast.LENGTH_LONG).show();
+            return;
+        }
+
         controller.getTranslateService();
         String lenEntrada = controller.Detector(paragraph);
         String salida = controller.translate_final(paragraph,lenEntrada,languageSelected);

@@ -47,7 +47,25 @@ public class MainActivity extends AppCompatActivity {
 
     public void buttonFunction(View w){
 
-        startActivity(new Intent(this, TranslatorActivity.class));
+        //Para trabajar sin base de datos COMENTAR desde aqui
+        ///*
+        LogInController.LogInResult result = new LogInController().logIn(mUserEditText.getText().toString(), mPassEditText.getText().toString());
+
+        switch(result.result){
+            case BAD_PASSWORD: break;
+            case UNKNOWN_USER: break;
+            case CORRECT:
+                Globals.loggedUser = result.user;
+                Globals.rolRepo.refreshUserRol(Globals.loggedUser);
+                startActivity(new Intent(this, TranslatorActivity.class));
+                break;
+        }
+        //*/
+        int a = 0;
+        //Para trabajar sin base de datos COMENTAR hasta aqui
+
+        //Descomentar esto para trabajar sin base de datos
+        //startActivity(new Intent(this, TranslatorActivity.class));
 
 
     }
