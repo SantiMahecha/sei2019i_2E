@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.traductor.R;
 import com.example.traductor.business_logic.Globals;
@@ -55,8 +56,10 @@ public class MainActivity extends AppCompatActivity {
         LogInController.LogInResult result = new LogInController().logIn(mUserEditText.getText().toString(), mPassEditText.getText().toString());
 
         switch(result.result){
-            case BAD_PASSWORD: break;
-            case UNKNOWN_USER: break;
+            case BAD_PASSWORD:
+                Toast.makeText(this, "Contraseña incorrecta", Toast.LENGTH_SHORT).show(); break;
+            case UNKNOWN_USER:
+                Toast.makeText(this, "Usuario desconocido", Toast.LENGTH_SHORT).show(); break;
             case CORRECT:
                 Globals.loggedUser = result.user;
                 Globals.rolRepo.refreshUserRol(Globals.loggedUser);
@@ -64,7 +67,6 @@ public class MainActivity extends AppCompatActivity {
                 break;
         }
         //*/
-        int a = 0;
         //Para trabajar sin base de datos COMENTAR hasta aqui
 
         //Descomentar esto para trabajar sin base de datos
