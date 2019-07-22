@@ -34,5 +34,6 @@ public class DetailedParagraphActivity extends AppCompatActivity {
 
     void buttonTranslate(View v){
 
+
     }
 }
