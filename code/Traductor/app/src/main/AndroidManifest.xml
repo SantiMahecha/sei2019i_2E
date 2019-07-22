@@ -21,6 +21,8 @@
         </activity>
         <activity android:name="com.example.traductor.GUI.activities.TranslatorActivity">
         </activity>
+        <activity android:name="com.example.traductor.GUI.activities.RegisterActivity">
+        </activity>
     </application>
 
 </manifest>
