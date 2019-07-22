@@ -6,6 +6,7 @@
     <string name="login_btn">Login</string>
     <string name="logo_description">Traductor Logo</string>
     <string name="btn_translate"> Traduce</string>
+    <string name="btn_register">Registrarse</string>
     <string-array name="languages">
         <item>en</item>
         <item>es</item>

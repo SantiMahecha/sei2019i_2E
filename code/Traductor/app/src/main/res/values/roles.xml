@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string-array name="opc_roles">
+
+        <item>Todos</item>
         <item>Inglés 1</item>
         <item>Inglés 2</item>
         <item>Inglés 3</item>

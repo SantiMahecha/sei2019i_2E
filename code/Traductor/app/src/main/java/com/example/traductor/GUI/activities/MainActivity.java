@@ -64,7 +64,9 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(this, "Iniciando sesións", Toast.LENGTH_SHORT).show();
                 Globals.loggedUser = result.user;
                 Globals.rolRepo.refreshUserRol(Globals.loggedUser);
-                startActivity(new Intent(this, TranslatorActivity.class));
+                if(Globals.loggedUser.getAdmin()) { startActivity(new Intent(this, SetRoleActivity.class));}
+                else{
+                startActivity(new Intent(this, TranslatorActivity.class));}
                 break;
         }
         //*/
@@ -74,5 +76,9 @@ public class MainActivity extends AppCompatActivity {
         //startActivity(new Intent(this, TranslatorActivity.class));
 
 
+    }
+
+    public  void buttonGoToReg(View w) {
+        startActivity(new Intent(this, RegisterActivity.class));
     }
 }
