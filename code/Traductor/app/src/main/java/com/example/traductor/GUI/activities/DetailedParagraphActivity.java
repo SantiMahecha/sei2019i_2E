@@ -12,6 +12,7 @@ import android.widget.Toast;
 
 import com.example.traductor.R;
 import com.example.traductor.business_logic.Globals;
+import com.example.traductor.business_logic.controllers.SaveHistoricController;
 import com.example.traductor.business_logic.controllers.Text;
 import com.example.traductor.business_logic.controllers.Translate_controller;
 import com.j256.ormlite.stmt.query.In;
@@ -67,6 +68,7 @@ public class DetailedParagraphActivity extends AppCompatActivity implements Adap
         controller.getTranslateService();
         String lenEntrada = controller.Detector(paragraph);
         String salida = controller.translate_final(paragraph,lenEntrada,languageSelected);
+        new SaveHistoricController().save(paragraph, salida, lenEntrada, languageSelected);
         translatedTv.setText(salida);
     }
 
