@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.traductor.R;
 import com.example.traductor.business_logic.controllers.RegisterController;
@@ -39,8 +40,8 @@ public class RegisterActivity extends AppCompatActivity {
 
 
         switch(result.result){
-            case USER_EXISTS: messageTextView.setText("Usuario ya existe");break;
-            case CORRECT: messageTextView.setText("Creado exitosamente ");break;
+            case USER_EXISTS: Toast.makeText(this, "Usuario ya existe", Toast.LENGTH_LONG).show();break;
+            case CORRECT: Toast.makeText(this, "Creado exitosamente", Toast.LENGTH_LONG).show();break;
         }
 
     }

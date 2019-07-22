@@ -1,6 +1,7 @@
 package com.example.traductor.business_logic.controllers;
 
 import com.example.traductor.business_logic.Globals;
+import com.example.traductor.data_access.models.Rol;
 import com.example.traductor.data_access.models.User;
 
 public class RegisterController {
@@ -26,10 +27,11 @@ public class RegisterController {
         User user = Globals.userRepo.getByNickname(nickname);
 
         if(!(user == null)) return new RegisterResult(RegisterResultEnum.USER_EXISTS, null);
-        //crear usuario ?
+
         user = new User();
         user.setNickname(nickname);
         user.setPassword(password);
+        user.setRol(Globals.rolRepo.getById(2));
         Globals.userRepo.create(user);
         return new RegisterResult(RegisterResultEnum.CORRECT, user);
     }

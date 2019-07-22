@@ -53,7 +53,7 @@ public class SetRoleActivity extends AppCompatActivity implements AdapterView.On
 
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-        selectedRol = position;
+        selectedRol = position+1;
     }
 
     @Override
