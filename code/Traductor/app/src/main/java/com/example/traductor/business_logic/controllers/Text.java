@@ -4,14 +4,15 @@ import java.util.Arrays;
 import java.util.LinkedList;
 
 public class Text {
-    String texto;
+
+    private String toTranslate;
 
     public Text(String aTraducir) {
-        texto = aTraducir;
+        toTranslate = aTraducir;
     }
 
     public String[] separar() {
-        return texto.split("\n");
+        return toTranslate.split("\n");
     }
 
 }
