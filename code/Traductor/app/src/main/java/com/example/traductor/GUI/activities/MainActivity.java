@@ -52,7 +52,7 @@ public class MainActivity extends AppCompatActivity {
     public void buttonFunction(View w){
 
         //Para trabajar sin base de datos COMENTAR desde aqui
-        /*
+        ///*
         LogInController.LogInResult result = new LogInController().logIn(mUserEditText.getText().toString(), mPassEditText.getText().toString());
 
         switch(result.result){
@@ -69,11 +69,11 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(new Intent(this, TranslatorActivity.class));}
                 break;
         }
-        */
+        //*/
         //Para trabajar sin base de datos COMENTAR hasta aqui
 
         //Descomentar esto para trabajar sin base de datos
-        startActivity(new Intent(this, TranslatorActivity.class));
+        //startActivity(new Intent(this, TranslatorActivity.class));
 
 
     }
