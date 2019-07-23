@@ -4,6 +4,8 @@ import android.content.Context;
 import android.os.StrictMode;
 
 import com.example.traductor.R;
+import com.example.traductor.business_logic.Globals;
+import com.example.traductor.data_access.models.User;
 import com.google.auth.oauth2.GoogleCredentials;
 import com.google.cloud.translate.*;
 
@@ -41,19 +43,23 @@ public class Translate_controller {
         }
     }
 
-    public String translate_final(String texto,String targetLanguage) {
+    public String translate_final(String texto,String originLenguaje,String targetLanguage) {
 
         //Get input text to be translated:
-
-        Translation translation = translate.translate(texto,Translate.TranslateOption.sourceLanguage("es"), Translate.TranslateOption.targetLanguage(targetLanguage));
-        return translation.getTranslatedText();
-
-        //Translated text and original text are set to TextViews:
-
+        if(originLenguaje.equals(targetLanguage)){
+            return "son el mismo lenguaje no tiene logica";
+        } else {
+            Translation translation = translate.translate(texto, Translate.TranslateOption.sourceLanguage(originLenguaje), Translate.TranslateOption.targetLanguage(targetLanguage));
+            return translation.getTranslatedText();
+        }
 
     }
 
+    public String Detector(String texto){
 
+      return  translate.detect(texto).getLanguage();
+
+    }
 
 
 }

@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.traductor.R;
 import com.example.traductor.business_logic.Globals;
@@ -32,6 +33,9 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
@@ -46,21 +50,35 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void buttonFunction(View w){
-/*
+
+        //Para trabajar sin base de datos COMENTAR desde aqui
+        ///*
         LogInController.LogInResult result = new LogInController().logIn(mUserEditText.getText().toString(), mPassEditText.getText().toString());
-       //LogInController.LogInResultEnum result = LogInController.LogInResultEnum.CORRECT;
 
-       switch(result.result){
-            case UNKNOWN_USER: messageTextView.setText("Usuario Desconocido");break;
-            case BAD_PASSWORD: messageTextView.setText("Contraseña Incorrecta");break;
+        switch(result.result){
+            case BAD_PASSWORD:
+                Toast.makeText(this, "Contraseña incorrecta", Toast.LENGTH_SHORT).show(); break;
+            case UNKNOWN_USER:
+                Toast.makeText(this, "Usuario desconocido", Toast.LENGTH_SHORT).show(); break;
             case CORRECT:
+                Toast.makeText(this, "Iniciando sesións", Toast.LENGTH_SHORT).show();
                 Globals.loggedUser = result.user;
+                Globals.rolRepo.refreshUserRol(Globals.loggedUser);
+                if(Globals.loggedUser.getAdmin()) { startActivity(new Intent(this, SetRoleActivity.class));}
+                else{
+                startActivity(new Intent(this, TranslatorActivity.class));}
+                break;
+        }
+        //*/
+        //Para trabajar sin base de datos COMENTAR hasta aqui
 
-                startActivity(new Intent(this, TranslatorActivity.class));
-<<<<<<< HEAD
-        }*/
-        startActivity(new Intent(this, TranslatorActivity.class));
+        //Descomentar esto para trabajar sin base de datos
+        //startActivity(new Intent(this, TranslatorActivity.class));
 
 
+    }
+
+    public  void buttonGoToReg(View w) {
+        startActivity(new Intent(this, RegisterActivity.class));
     }
 }

@@ -5,6 +5,15 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@color/white">
+
+    <ImageView android:src="@drawable/logo"
+        android:layout_width="wrap_content"
+        android:layout_height="72dp"
+        android:layout_marginBottom="24dp"
+        android:layout_marginTop="24dp"
+        android:layout_gravity="center_horizontal"
+        android:contentDescription="@string/logo_description"/>
+
     <EditText
         android:id="@+id/ed_translate_input"
         android:layout_width="match_parent"
@@ -14,19 +23,28 @@
         android:inputType="textMultiLine"
         android:minLines="4"
         android:maxLines="10"/>
+    <TextView
+        android:id="@+id/tv_translate_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:padding="8dp"
+        android:gravity="center_horizontal"
+        android:text="TRADUCE LO QUE QUIERAS! :D"
+        android:textSize="18sp"
+        android:textColor="@color/accent"/>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/accent"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"/>
 
-    <ScrollView
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rv_translations"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-
-        <TextView
-            android:id="@+id/tv_translated_output"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:padding="16dp"
-            android:text="Traduce lo que quieras!!"
-            android:textSize="22sp" />
-    </ScrollView>
+    </android.support.v7.widget.RecyclerView>
 
 </LinearLayout>

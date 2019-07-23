@@ -13,7 +13,7 @@ public class Database {
 
 
 
-    private static final String HOST = "jdbc:mysql://192.168.43.70:3306/";
+    private static final String HOST = "jdbc:mysql://10.203.146.28:3306/";
 
 
     private static final String DB_NAME = "traductordb";

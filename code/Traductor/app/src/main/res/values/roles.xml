@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="opc_roles">
+
+        <item>Todos</item>
+        <item>Inglés 1</item>
+        <item>Inglés 2</item>
+        <item>Inglés 3</item>
+        <item>Español 1</item>
+        <item>Español 2</item>
+        <item>Español 3</item>
+        <item>Francés 1</item>
+        <item>Francés 2</item>
+        <item>Francés 3</item>
+
+    </string-array>
+
+
+</resources>
